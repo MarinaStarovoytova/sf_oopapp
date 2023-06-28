@@ -19,7 +19,6 @@
     list-style-type: none;
     padding: 0;
     width: 200px;
-    /* min-height: 80px; */
     position: absolute;
     right: -3px;
     top: 45px;
@@ -30,10 +29,6 @@
     display: none;
     z-index: 1;
 }
-
-/* .dropdown-user-menu:hover .menu {
-    display: block;
-} */
 
 .list-menu {
     text-align: center;
@@ -59,7 +54,7 @@
 
 .list-menu-user:hover .menu-users {
     display: block;
-} 
+}
 
 .menu-users {
     right: 200px;
@@ -71,7 +66,8 @@
     color: black;
 }
 
-.button-delete-user, .button-add {
+.button-delete-user,
+.button-add {
     width: 180px;
 }
 

@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/style.css";
 import "./styles/styleKanban.css";
 import "./styles/styleUserMenu.css";
-import { setTaskFieldTemplate } from "./services/taskFieldTemplate"; 
+import { setTaskFieldTemplate } from "./services/taskFieldTemplate";
 import { setNoAccessTemplate } from "./services/noAccessTemplate";
 import { User } from "./models/user/User";
 import { generateTestUser } from "./utils";
@@ -24,11 +24,11 @@ loginForm.addEventListener("submit", function (e) {
   const login = formData.get("login");
   const password = formData.get("password");
 
-  if (authUser(login, password)){
+  if (authUser(login, password)) {
     // если пароль верный
     setTaskFieldTemplate(document);
-    
-    if ( User.isAdmin(appState.currentUser) ){
+
+    if (User.isAdmin(appState.currentUser)) {
       setMenuAsAdmin(document);
     } else {
       setMenuAsUser(document);
@@ -36,11 +36,10 @@ loginForm.addEventListener("submit", function (e) {
   } else {
     // пароль не верный
     setNoAccessTemplate(document);
-
   }
 });
 
-export const clickOut = function(e) {
+export const clickOut = function (e) {
   appState._currentUser = null;
   document.querySelector("#content").innerHTML = '<p id="content">Please Sign In to see your tasks!</p>';
   for (let i = 0; i < 2; i++) {

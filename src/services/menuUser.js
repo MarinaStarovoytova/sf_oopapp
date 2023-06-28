@@ -1,17 +1,15 @@
 import menuForAdmin from '../templates/menuForAdmin.html';
 import menuForUser from '../templates/menuForUser.html';
-import { userButtonMenu,userLogOutMenu } from "./userMenu";
+import { userButtonMenu, userLogOutMenu } from "./userMenu";
 import { User } from '../models/user/User';
 import { setTaskFieldTemplate } from './taskFieldTemplate';
 import { Role } from "../models/enum";
 
-
-export const setMenuAsAdmin = function(document){
-    document.querySelector(".menu").innerHTML = menuForAdmin; 
-    for (const user of User.getListUserFromLocalStorage()){
-        document.querySelector(".delete-id-user").innerHTML += '<li class="user-delete button-deleteUser" id="'+user.id+'">' +user.login + '</li>';
+export const setMenuAsAdmin = function (document) {
+    document.querySelector(".menu").innerHTML = menuForAdmin;
+    for (const user of User.getListUserFromLocalStorage()) {
+        document.querySelector(".delete-id-user").innerHTML += '<li class="user-delete button-deleteUser" id="' + user.id + '">' + user.login + '</li>';
     }
-    
     userButtonMenu();
     userLogOutMenu();
     document.querySelectorAll(".button-deleteUser").forEach(element => {
@@ -20,11 +18,10 @@ export const setMenuAsAdmin = function(document){
             update(document);
         });
     });
-    
+
     document.querySelector(".button-add").addEventListener("click", function () {
         document.querySelector(".modal").style.display = 'block';
-
-        });
+    });
 
     document.querySelector(".btn-primary").addEventListener("click", function () {
         const newInputLogin = document.querySelector(".newLogin");
@@ -38,31 +35,26 @@ export const setMenuAsAdmin = function(document){
             document.querySelector(".modal").style.display = 'none';
             update(document);
         }
-            
-        });
+    });
 
-        document.querySelector(".btn-secondary").addEventListener("click", function () {
-            update(document);
-        });
+    document.querySelector(".btn-secondary").addEventListener("click", function () {
+        update(document);
+    });
 
-        document.querySelector(".close").addEventListener("click", function () {
-            update(document);
-        });
-        
-
+    document.querySelector(".close").addEventListener("click", function () {
+        update(document);
+    });
 };
 
 function update(document) {
     setTaskFieldTemplate(document);
-            setMenuAsAdmin(document);
-}
+    setMenuAsAdmin(document);
+};
 
-export const setMenuAsUser = function(document){
+export const setMenuAsUser = function (document) {
     document.querySelector(".menu").innerHTML = menuForUser;
-    
     userButtonMenu();
     userLogOutMenu();
-
 };
 
 

@@ -1,12 +1,11 @@
 import { documentHTML, clickOut } from "../app";
 
-
 export const userButtonMenu = function () {
     const menuBtn = documentHTML().querySelector(".button-menu");
     const menudisplay = documentHTML().querySelector(".menu");
     menuBtn.addEventListener("click", function (e) {
         console.log('123');
-        if(menuBtn.style.transform == 'rotate(180deg)'){
+        if (menuBtn.style.transform == 'rotate(180deg)') {
             menuBtn.style.transform = 'rotate(0deg)';
             menudisplay.style.display = 'none';
         } else {
@@ -14,8 +13,9 @@ export const userButtonMenu = function () {
             menudisplay.style.display = 'block';
         }
     });
-  }
-  export const userLogOutMenu = function () {
+};
+
+export const userLogOutMenu = function () {
     const logoutBtn2 = documentHTML().querySelector(".list-menu-logout");
     logoutBtn2.addEventListener("click", (e) => clickOut());
-  }
+};
